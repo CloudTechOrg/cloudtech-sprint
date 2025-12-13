@@ -1,6 +1,4 @@
-# スプリント1：ネットワークとサーバ
-
-## ハンズオン課題
+# スプリント1：ネットワークとサーバ ハンズオン課題
 
 ## 背景
 
@@ -30,11 +28,21 @@
 
 ### 要件1：サーバ構成
 - 3台のサーバにより構成される。それぞれ、Webサーバ、APIサーバ、DBサーバとし、EC2インスタンスを3台用意して構成する。
+- EC2インスタンスのAMIはAmazon Linux 2023を使用する。
 - それぞれのサーバの初期構築は、別途提示されるシェルスクリプトをEC2のユーザデータにて実行することで行う。
 
-- DBサーバのスクリプト
-- APIサーバのスクリプト
-- Webさーばのスクリプト
+#### DBサーバの構築方法
+- [こちら](https://github.com/CloudTechOrg/sprint1-api/blob/main/userdata/db_userdata.sh)をuserdataで実行してください
+- `DB_PASSWORD`には任意のパスワードを設定してください
+
+#### APIサーバの構築方法
+- [こちら](https://github.com/CloudTechOrg/sprint1-api/blob/main/userdata/api_userdata.sh)をuserdataで実行してください
+- `DB_SERVER_IP`にはDBサーバのPrivate IPアドレスを設定してください
+- `DB_PASSWORD`には、DBサーバに設定したものと同じものを設定してください
+
+#### Webサーバの構築方法
+- [こちら](https://github.com/CloudTechOrg/sprint1-frontend/blob/main/userdata/web_userdata.sh)をuserdataで実行してください
+- `API_SERVER_IP`にはAPIサーバのPrivate IPアドレスを設定してください
 
 ### 要件2：アクセス制御
 - Webサーバはインターネットからの80ポート通信を許可する
@@ -47,4 +55,7 @@
 * 3台のサーバ（Web, API, DB）は踏み台サーバからのssh接続を許可する
 
 ### 要件4：IPアドレスの固定化
-* Webサーバは、インスタンス再起動によりIPアドレスの変更がされないようにする（192.168.1.1 等の固定化）
+* Webサーバは、インスタンス再起動によりパブリックIPアドレスが変更されないようにする（Elastic IPを使用）
+
+## ヒント
+- EC2のインスタンスタイプは `t2.micro` を使用すると、無料利用枠の対象となります。
