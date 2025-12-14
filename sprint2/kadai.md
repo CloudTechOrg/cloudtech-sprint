@@ -37,6 +37,9 @@
 - `DB_USER`にはRDSのマスターユーザー名を設定してください
 - `DB_PASSWORD`にはRDSのマスターパスワードを設定してください
 
+#### APIの使い方
+- [こちら](https://github.com/CloudTechOrg/sprint2-api/blob/main/README.md)に、APIの操作方法が記載されています
+
 ### 要件2：DBサーバ
 - DBサーバとしてRDSインスタンスを構成する
 - RDSのDBエンジンはMySQLを使用する
@@ -86,6 +89,10 @@ mysql -h <RDSのエンドポイント> -u <マスターユーザー名> -p
 - RDSのセキュリティグループで、APIサーバからの3306ポート通信が許可されているか確認してください
 - userdataに設定したRDSのエンドポイント、ユーザー名、パスワードが正しいか確認してください
 - RDSが配置されているサブネットへのルーティングが設定されているか確認してください
+
+### APIの接続でデータベース接続エラーがです
+```
+curl: (28) Failed to connect to 13.159.193.155 port 80 after 75006 ms: Couldn't connect to server
 
 ### 踏み台サーバからRDSに接続できない
 - RDSのセキュリティグループで、踏み台サーバからの3306ポート通信が許可されているか確認してください
