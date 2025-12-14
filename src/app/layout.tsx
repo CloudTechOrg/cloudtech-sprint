@@ -4,6 +4,10 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'CloudTech Sprint Documents',
   description: 'CloudTech Sprint課題ドキュメント',
+  robots: {
+    index: false,
+    follow: false,
+  },
 }
 
 export default function RootLayout({
