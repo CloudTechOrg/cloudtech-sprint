@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import { remark } from 'remark'
+import remarkGfm from 'remark-gfm'
 import html from 'remark-html'
 import hljs from 'highlight.js'
 
@@ -21,10 +22,17 @@ export async function getMarkdownContent(sprint: string, page: string) {
 
   // MarkdownをHTMLに変換
   const processedContent = await remark()
+    .use(remarkGfm)
     .use(html, { sanitize: false })
     .process(fileContents)
 
   let htmlContent = processedContent.toString()
+
+  // 外部リンクを別タブで開くように設定
+  htmlContent = htmlContent.replace(
+    /<a href="(https?:\/\/[^"]+)">/g,
+    '<a href="$1" target="_blank" rel="noopener noreferrer">'
+  )
 
   // コードブロックにシンタックスハイライトを適用
   htmlContent = htmlContent.replace(

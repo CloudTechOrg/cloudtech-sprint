@@ -93,6 +93,7 @@ mysql -h <RDSのエンドポイント> -u <マスターユーザー名> -p
 ### APIの接続でデータベース接続エラーがです
 ```
 curl: (28) Failed to connect to 13.159.193.155 port 80 after 75006 ms: Couldn't connect to server
+```
 
 ### 踏み台サーバからRDSに接続できない
 - RDSのセキュリティグループで、踏み台サーバからの3306ポート通信が許可されているか確認してください

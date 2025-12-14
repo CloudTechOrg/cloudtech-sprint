@@ -66,17 +66,40 @@
   text-decoration: underline;
 }
 
-.markdown-content ul,
+.markdown-content ul {
+  margin: 1.25rem 0;
+  margin-left: 1.5rem;
+  padding-left: 0;
+  list-style: none !important;
+}
+
 .markdown-content ol {
   margin: 1.25rem 0;
   padding-left: 1.5rem;
 }
 
-.markdown-content li {
+.markdown-content ul li {
+  margin: 0.5rem 0;
+  padding-left: 1.75rem;
+  position: relative;
+}
+
+.markdown-content ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: -0.2em;
+  color: var(--orange-primary);
+  font-weight: bold;
+  font-size: 1.2rem;
+  line-height: 2;
+}
+
+.markdown-content ol li {
   margin: 0.5rem 0;
 }
 
-.markdown-content li::marker {
+.markdown-content ol li::marker {
   color: var(--orange-primary);
 }
 

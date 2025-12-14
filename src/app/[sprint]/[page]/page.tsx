@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import { getMarkdownContent } from '@/lib/markdown'
+import MainLayout from '@/components/MainLayout'
 import TopButtons from '@/components/TopButtons'
 
 type Props = {
@@ -18,15 +19,15 @@ export default async function DocumentPage({ params }: Props) {
   }
 
   return (
-    <>
+    <MainLayout>
       <TopButtons />
-      <main className="max-w-4xl mx-auto px-12 py-12 bg-white min-h-screen">
+      <div className="p-12 max-w-4xl">
         <article
           className="markdown-content"
           dangerouslySetInnerHTML={{ __html: data.content }}
         />
-      </main>
-    </>
+      </div>
+    </MainLayout>
   )
 }
 
