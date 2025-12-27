@@ -40,7 +40,7 @@
 - オブジェクトストレージへの直接アクセスは許可せず、CDN経由でのみアクセスできるようにする
 
 #### 使用する資材
-- [こちらのファイル一式](https://github.com/CloudTechOrg/sprint3-api/blob/main/userdata/api_userdata.sh)をオブジェクトストレージに格納してください
+- [こちらのファイル一式](https://github.com/CloudTechOrg/cloudtech-sprint/tree/main/content/sprint4/resource)をオブジェクトストレージに格納してください
 
 ### 要件2：CDNの利用
 - CDN（コンテンツ配信ネットワーク）を使用して、世界中のユーザに高速にコンテンツを配信する
