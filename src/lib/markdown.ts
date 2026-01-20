@@ -66,18 +66,47 @@ export function getAllSprints() {
   const sprints = fs.readdirSync(contentDirectory)
     .filter(f => f.startsWith('sprint') && fs.statSync(path.join(contentDirectory, f)).isDirectory())
 
-  const documents: { sprint: string; page: string }[] = []
+  const documents: { sprint: string; page: string; title: string; sort: number }[] = []
 
   sprints.forEach(sprint => {
     const sprintPath = path.join(contentDirectory, sprint)
-    const mdFiles = fs.readdirSync(sprintPath).filter(f => f.endsWith('.md'))
+
+    // title.mdからtitleとsortを読み取る
+    const titlePath = path.join(sprintPath, 'title.md')
+    let title = sprint
+    let sort = 999
+
+    if (fs.existsSync(titlePath)) {
+      const titleContent = fs.readFileSync(titlePath, 'utf8')
+      const titleMatch = titleContent.match(/^#\s*title\s*\n(.+)$/m)
+      const sortMatch = titleContent.match(/^#\s*sort\s*\n(\d+)$/m)
+
+      if (titleMatch) {
+        title = titleMatch[1].trim()
+      }
+      if (sortMatch) {
+        sort = parseInt(sortMatch[1], 10)
+      }
+    }
+
+    const mdFiles = fs.readdirSync(sprintPath).filter(f => f.endsWith('.md') && f !== 'title.md')
 
     mdFiles.forEach(file => {
       documents.push({
         sprint,
         page: file.replace('.md', ''),
+        title,
+        sort,
       })
     })
+  })
+
+  // sortで数値ソート（同じ場合はtitleでソート）
+  documents.sort((a, b) => {
+    if (a.sort !== b.sort) {
+      return a.sort - b.sort
+    }
+    return a.title.localeCompare(b.title)
   })
 
   return documents

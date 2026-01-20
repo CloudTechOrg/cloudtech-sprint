@@ -7,6 +7,8 @@ import { usePathname } from 'next/navigation'
 type Document = {
   sprint: string
   page: string
+  title: string
+  sort: number
 }
 
 export default function Sidebar({ documents }: { documents: Document[] }) {
@@ -31,7 +33,7 @@ export default function Sidebar({ documents }: { documents: Document[] }) {
           Documents
         </h2>
         <ul className="space-y-1">
-          {documents.map(({ sprint, page }) => {
+          {documents.map(({ sprint, page, title }) => {
             const href = `/${sprint}/${page}`
             const isActive = pathname === href
 
@@ -45,7 +47,7 @@ export default function Sidebar({ documents }: { documents: Document[] }) {
                       : 'text-gray-700 hover:bg-[#fef5e7] hover:text-[#e67e22]'
                   }`}
                 >
-                  {sprint}/{page}
+                  {title}
                 </Link>
               </li>
             )
