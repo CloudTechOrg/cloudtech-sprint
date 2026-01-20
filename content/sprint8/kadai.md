@@ -58,12 +58,9 @@
 
 ### 要件2：バックエンド処理
 - サーバレスの関数でAPIのビジネスロジックが実行されていること
-- 関数のランタイムはPythonが使用されていること
-- リクエストに応じて自動的に実行される構成であること
 
 ### 要件3：データストア
 - メモのデータを保存するためのNoSQLデータベースが使用されていること
-- サーバレスで従量課金のデータベースであること
 
 ### 要件4：API仕様
 - POST /memos でメモが作成できること
@@ -84,46 +81,16 @@
 ```
 
 ## 動作確認
-
-### 1. メモの作成
-```bash
-curl -X POST https://<APIエンドポイント>/memos \
-  -H "Content-Type: application/json" \
-  -d '{"title": "買い物リスト", "content": "牛乳、卵、パン"}'
-```
-
-レスポンス例：
-```json
-{
-  "id": "550e8400-e29b-41d4-a716-446655440000",
-  "title": "買い物リスト",
-  "content": "牛乳、卵、パン",
-  "createdAt": "2024-01-15T10:30:00Z",
-  "updatedAt": "2024-01-15T10:30:00Z"
-}
-```
-
-### 2. メモの一覧取得
-```bash
-curl https://<APIエンドポイント>/memos
-```
-
-### 3. メモの取得
-```bash
-curl https://<APIエンドポイント>/memos/{id}
-```
-
-### 4. メモの更新
-```bash
-curl -X PUT https://<APIエンドポイント>/memos/{id} \
-  -H "Content-Type: application/json" \
-  -d '{"title": "買い物リスト（更新）", "content": "牛乳、卵、パン、バター"}'
-```
-
-### 5. メモの削除
-```bash
-curl -X DELETE https://<APIエンドポイント>/memos/{id}
-```
+- POST /memos でメモが作成できること
+    - 例：`curl -X POST https://<APIエンドポイント>/memos -H "Content-Type: application/json" -d '{"title": "買い物リスト", "content": "牛乳、卵、パン"}'`
+- GET /memos ですべてのメモが取得できること
+    - 例：`curl https://<APIエンドポイント>/memos`
+- GET /memos/{id} で指定したIDのメモが取得できること
+    - 例：`curl https://<APIエンドポイント>/memos/{id}`
+- PUT /memos/{id} で指定したIDのメモが更新できること
+    - 例：`curl -X PUT https://<APIエンドポイント>/memos/{id} -H "Content-Type: application/json" -d '{"title": "買い物リスト（更新）", "content": "牛乳、卵、パン、バター"}'`
+- DELETE /memos/{id} で指定したIDのメモが削除できること
+    - 例：`curl -X DELETE https://<APIエンドポイント>/memos/{id}`
 
 ## ヒント
 - AWSにはサーバレスでAPIを構築するためのサービスが用意されています
