@@ -48,51 +48,10 @@
 - 選択したスプリントの動作確認が正常に行える
 
 ## 構築チェックリスト
-実装したTerraformのコードを確認してください。
-
-## ヒント
-
-### ファイル構成例
-```
-.
-├── main.tf          # メインのリソース定義
-├── variables.tf     # 変数定義
-├── outputs.tf       # 出力定義
-├── provider.tf      # プロバイダー設定
-└── terraform.tfvars # 変数の値（※.gitignoreに追加推奨）
-```
-
-### よく使うTerraformコマンド
-```bash
-# 初期化
-terraform init
-
-# 実行計画の確認
-terraform plan
-
-# リソースの作成
-terraform apply
-
-# リソースの削除
-terraform destroy
-
-# コードのフォーマット
-terraform fmt
-
-# 構文チェック
-terraform validate
-```
-
-### 参考リソース
-- [Terraform Registry - AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
-- CloudTech講座のTerraformセクション
+- 実装したTerraformのコードを確認してください。
 
 ## 動作確認
-- `terraform init` が正常に完了すること
-- `terraform plan` でエラーが発生しないこと
-- `terraform apply` でリソースが作成されること
-- 選択したスプリントの動作確認が成功すること
-- `terraform destroy` でリソースが削除されること
+- Terraform または CloudFormationを実行し、リソースが作成されること
 
 ## 理解度の確認
 この課題の理解度を確認するため、以下の内容を言語化してみましょう。

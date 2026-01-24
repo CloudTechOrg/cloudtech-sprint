@@ -43,6 +43,9 @@
 - 冗長化やオートスケーリングは不要（最小構成で可）
 - ロードバランサーは使用しなくても可（パブリックIPで直接アクセスできれば良い）
 
+## APIの使い方
+- [こちら](https://github.com/CloudTechOrg/sprint6-api/blob/main/README.md)に、APIの操作方法が記載されています
+
 ## 構築チェックリスト
 
 下記が実装されていることを確認してください。
@@ -60,9 +63,6 @@
 
 ### 要件3：コンテナ実行基盤
 - コンテナがECS/Fargateで動作していること
-
-## APIの使い方
-- [こちら](https://github.com/CloudTechOrg/sprint6-api/blob/main/README.md)に、APIの操作方法が記載されています
 
 ## 動作確認
 - パイプラインを手動で実行し、アプリケーションがデプロイされること
