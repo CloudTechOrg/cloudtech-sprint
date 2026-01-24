@@ -20,12 +20,12 @@
 
 ### 要件1：フロントエンド
 - 下記のリポジトリにあるコードを利用する
-    - ToDo：ここにリポジトリのURLを記載
+    - https://github.com/CloudTechOrg/cloudtech-hotel-front
 - CloudFront + S3で動作させる
 
 ### 要件2：バックエンドAPI
 - 下記のリポジトリにあるコードを利用する
-    - ToDo：ここにリポジトリのURLを記載
+    - https://github.com/CloudTechOrg/cloudtech-hotel-api
 - ECS/Fargateで動作させる
 
 ### 要件3：データベース
@@ -104,8 +104,8 @@
 
 ### 要件11：マルチアカウント（任意）
 - AWS Organizationsで本番環境と開発環境をアカウントレベルで分離する
-- データ分析基盤も別アカウントに分離する（本番環境のみ対象）
 - SCPで任意のガバナンスポリシーを設定する
+- （高難度）データ分析基盤も別アカウントに分離し、Glue以降はデータ分析基盤のアカウントで実行（本番環境のみ対象）
 
 ### 要件12：セキュリティ（任意）
 - AWS WAFを使用して、CloudFrontおよびALBへの通信を保護する
@@ -122,8 +122,8 @@
 ### 要件14：オブザーバビリティ（任意）
 - CloudWatch Alarmsを使用して、ECS/FargateのCPU使用率・メモリ使用率をモニタリングする
 - 1分間の平均が70%を超えた場合、SNS経由でメールまたはSlackにアラートを通知する
-- ECS/Fargateでエラーが発生した場合も、同様にアラートを通知する
-- （任意）WAFのアクセスログ、GuardDutyの検知履歴、CloudTrailの操作履歴をデータ分析基盤でAthenaから参照できるようにする
+- ECS/Fargateでエラーが発生した場合も、CloudWatchのサブスクリプションフィルターとLambda関数を組み合わせて、同様にアラートを通知する
+- （高難度）WAFのアクセスログ、GuardDutyの検知履歴、CloudTrailの操作履歴をデータ分析基盤でAthenaから参照できるようにする
 
 ## 提出物（Academy受講生のみ）
 - AWS構成図
