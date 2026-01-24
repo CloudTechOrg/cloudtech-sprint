@@ -78,6 +78,9 @@
     - 例：`aws sts assume-role --role-arn arn:aws:iam::<管理アカウントID>:role/<ロール名> --role-session-name test-session`
     - 例：`aws s3 ls s3://<バケット名>/ --profile <プロファイル名>`
 
+## 理解度の確認
+この課題の理解度を確認するため、以下の内容を言語化してみましょう。
+
 ## ヒント
 
 - AWSには複数のアカウントを一元管理するためのサービスがあります
