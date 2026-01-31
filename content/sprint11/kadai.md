@@ -477,7 +477,7 @@ terraform plan
 terraform apply
 
 # 踏み台サーバにSSH接続してデータ投入を確認
-ssh -i <your-key.pem> ec2-user@<bastion_public_ip>
+ssh -i ＜your-key.pem＞ ec2-user@＜bastion_public_ip＞
 cat /tmp/data_insert_complete.txt
 ```
 

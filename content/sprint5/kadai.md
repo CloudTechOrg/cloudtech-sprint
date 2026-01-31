@@ -196,7 +196,7 @@ ECSを構成する以下の要素について、それぞれの役割を説明�
 
 ```bash
 # ECRログインコマンド例
-aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin <アカウントID>.dkr.ecr.ap-northeast-1.amazonaws.com
+aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin ＜アカウントID＞.dkr.ecr.ap-northeast-1.amazonaws.com
 ```
 
 ### RDSに正しくデータが作成されていない
@@ -215,7 +215,7 @@ RDSに直接接続してデータを確認したい場合は、踏み台サー�
 sudo dnf install -y mariadb105
 
 # RDSへ接続
-mysql -h <RDSのエンドポイント> -u <マスターユーザー名> -p
+mysql -h ＜RDSのエンドポイント＞ -u ＜マスターユーザー名＞ -p
 
 # データベースとテーブルを確認
 USE meibo;

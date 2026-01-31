@@ -81,15 +81,15 @@
 
 ## 動作確認
 - POST /memos でメモが作成できること
-    - 例：`curl -X POST https://<APIエンドポイント>/memos -H "Content-Type: application/json" -d '{"title": "買い物リスト", "content": "牛乳、卵、パン"}'`
+    - 例：`curl -X POST https://＜APIエンドポイント＞/memos -H "Content-Type: application/json" -d '{"title": "買い物リスト", "content": "牛乳、卵、パン"}'`
 - GET /memos ですべてのメモが取得できること
-    - 例：`curl https://<APIエンドポイント>/memos`
+    - 例：`curl https://＜APIエンドポイント＞/memos`
 - GET /memos/{id} で指定したIDのメモが取得できること
-    - 例：`curl https://<APIエンドポイント>/memos/{id}`
+    - 例：`curl https://＜APIエンドポイント＞/memos/{id}`
 - PUT /memos/{id} で指定したIDのメモが更新できること
-    - 例：`curl -X PUT https://<APIエンドポイント>/memos/{id} -H "Content-Type: application/json" -d '{"title": "買い物リスト（更新）", "content": "牛乳、卵、パン、バター"}'`
+    - 例：`curl -X PUT https://＜APIエンドポイント＞/memos/{id} -H "Content-Type: application/json" -d '{"title": "買い物リスト（更新）", "content": "牛乳、卵、パン、バター"}'`
 - DELETE /memos/{id} で指定したIDのメモが削除できること
-    - 例：`curl -X DELETE https://<APIエンドポイント>/memos/{id}`
+    - 例：`curl -X DELETE https://＜APIエンドポイント＞/memos/{id}`
 
 ## 理解度の確認
 この課題の理解度を確認するため、以下の内容を言語化してみましょう。

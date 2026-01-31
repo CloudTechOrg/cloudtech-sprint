@@ -83,8 +83,8 @@
 - 開発アカウントでCloudTrailの停止・削除を試み、SCPにより操作が拒否されること
 - 開発アカウントの操作ログが管理アカウントのS3バケットに保存されていること
 - 開発アカウントからAssumeRoleを使用して、管理アカウントのS3バケットにアクセスできること
-    - 例：`aws sts assume-role --role-arn arn:aws:iam::<管理アカウントID>:role/<ロール名> --role-session-name test-session`
-    - 例：`aws s3 ls s3://<バケット名>/ --profile <プロファイル名>`
+    - 例：`aws sts assume-role --role-arn arn:aws:iam::＜管理アカウントID＞:role/＜ロール名＞ --role-session-name test-session`
+    - 例：`aws s3 ls s3://＜バケット名＞/ --profile ＜プロファイル名＞`
 
 ## 理解度の確認
 この課題の理解度を確認するため、以下の内容を言語化してみましょう。
@@ -149,7 +149,7 @@ AWS CloudTrailとは何か、その役割を説明してください。また、
         "Service": "cloudtrail.amazonaws.com"
       },
       "Action": "s3:PutObject",
-      "Resource": "arn:aws:s3:::<バケット名>/AWSLogs/<開発アカウントID>/*",
+      "Resource": "arn:aws:s3:::＜バケット名＞/AWSLogs/＜開発アカウントID＞/*",
       "Condition": {
         "StringEquals": {
           "s3:x-amz-acl": "bucket-owner-full-control"
@@ -163,7 +163,7 @@ AWS CloudTrailとは何か、その役割を説明してください。また、
         "Service": "cloudtrail.amazonaws.com"
       },
       "Action": "s3:GetBucketAcl",
-      "Resource": "arn:aws:s3:::<バケット名>"
+      "Resource": "arn:aws:s3:::＜バケット名＞"
     }
   ]
 }
@@ -182,7 +182,7 @@ AWS CloudTrailとは何か、その役割を説明してください。また、
     {
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::<開発アカウントID>:root"
+        "AWS": "arn:aws:iam::＜開発アカウントID＞:root"
       },
       "Action": "sts:AssumeRole"
     }
