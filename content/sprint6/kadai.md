@@ -44,7 +44,7 @@
 - ロードバランサーは使用しなくても可（パブリックIPで直接アクセスできれば良い）
 
 ## APIの使い方
-- [こちら](https://github.com/CloudTechOrg/sprint6-api/blob/main/README.md)に、APIの操作方法が記載されています
+- [こちら](https://github.com/CloudTechOrg/sprint3-api/blob/main/README.md)に、APIの操作方法が記載されています
 
 ## 構築チェックリスト
 
